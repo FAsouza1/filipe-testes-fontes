@@ -1,0 +1,9 @@
+#include 'TOTVS.CH'
+#include 'Protheus.ch'
+
+// Exemplo de TDialog
+
+User Function TST00001()
+    oDlg1 = TDialog():New(180,180,550,700,'Cadastro de Pessoa',,,,,CLR_BLACK,CLR_WHITE,,,.T.)
+    oDlg1 = Activate(,,,)
+return 

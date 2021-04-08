@@ -1,5 +1,5 @@
 #include "TOTVS.CH"
 
 User Function TST00010()
-Local cRet := 1
-Return cRet
+    msginfo('tst10')
+Return 
