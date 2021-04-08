@@ -1,0 +1,5 @@
+#include "TOTVS.CH"
+
+User Function TST00007()
+Local cRet := 1
+Return cRet

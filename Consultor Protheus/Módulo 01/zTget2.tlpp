@@ -1,0 +1,58 @@
+#include 'TOTVS.CH'
+#include 'Protheus.ch'
+
+/*/{Protheus.doc} zTget
+description
+@type function
+@version 
+@author Placido
+@since 23/09/2020
+@see http://efacildemais.blogspot.com/2011/06/msadvsize-dimensionamento-de-janelas-no.html
+@see https://tdn.totvs.com/display/tec/Construtor+TDialog%3ANew
+@see https://tdn.totvs.com/display/tec/Construtor+TButton%3ACreate
+@see https://tdn.totvs.com/display/tec/TSay
+@see https://tdn.totvs.com/display/tec/TDialog
+@see https://tdn.totvs.com/pages/viewpage.action?pageId=22479526 //Picture
+@see https://tdn.totvs.com/pages/viewpage.action?pageId=24347085 //Space
+@SEE https://tdn.totvs.com/pages/viewpage.action?pageId=23889301 DBSEEK
+@SEE https://tdn.totvs.com/display/tec/TGet CLASSE TGET
+/*/
+User Function zTget2()
+Local oDlg1
+Local oSay1
+Local oButton1
+
+//Começamos aqui à criar o TGet
+Local cGet1 := Space(6)    //variável que irá capturar o que for digitado, pra cada Tget, se faz necessário uma variável caracter para armazenar o que foi digitado
+Local oGet1    //variável responsável por receber a Classe/construtor TGet
+
+Local cGet2 := Space(2)
+Local oGet2
+
+oDlg1       := TDialog():New(0,0,200,500,"BLOQUEADOR DE CLIENTES",,,,,CLR_BLACK,CLR_WHITE,,,.T.)
+oSay1       := TSay():New(10,10,{||'Cliente'},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+oGet1       := TGet():New(25,10,{|u| IIF(Pcount()>0,cGet1:=u,cGet1)},oDlg1,40,10,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet1,,,, )
+oGet1:cF3   := "SA1"
+
+oSay2       := TSay():New(10,60,{||'Loja'},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+oGet2       := TGet():New(25,60,{|u| IIF(Pcount()>0,cGet2:=u,cGet2)},oDlg1,30,10,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet2,,,, )
+
+oButton1    := TButton():New(60, 10, "Bloquear agora", oDlg1,{|| fBloq(cGet1,cGet2)}, 60,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+
+oDlg1:Activate(,,,.T.)
+
+return
+
+
+Static Function fBloq(cCod,cLoja) //Vai receber o conteúdo das variáveis cGet1 e cGet2
+
+DbSelectArea("SA1")
+SA1->(DbSeek(xFilial("SA1")+cCod+cLoja)) //Vai procurar o cliente e a loja que estão dentro dos GETS
+
+RecLock("SA1",.F.) //usa-se true, para inclusão e false para EDIÇÃO/ALTERAÇÃO
+    SA1->A1_MSBLQL := '1'
+MsUnlock()
+
+MsgInfo("O cliente com código "+cCod+" e loja "+cLoja+" está sendo bloqueado!","ATENÇÃO")
+
+return
