@@ -1,9 +1,70 @@
 #include 'TOTVS.CH'
 #include 'Protheus.ch'
-
-// Exemplo de TDialog
+#include 'Topconn.ch'
 
 User Function TST00001()
-    oDlg1 = TDialog():New(180,180,550,700,'Cadastro de Pessoa',,,,,CLR_BLACK,CLR_WHITE,,,.T.)
-    oDlg1 = Activate(,,,)
+    Private oDlg
+    Private oFolder
+    Private aFolder         := {"Funções","Executar","Outros"}
+    Private cTituloJanela   := "Ultilitarios - Protheus Teste"
+
+    Private oButton1,oButton2,oButton3,oButton4,oButton5,oButton6,oButton7,oButton8,oButton9,oButton10,oButton11,oButton12,oButton13
+    Private oSay1,oSay2,oSay3,oSay4,oSay5,oSay6,oSay7,oSay8,oSay9,oSay10,oSay11,oSay12,oSay13
+    Private oSayT1,oSayt2,oSayt3,oSayt4,oSayt5,oSayt6,oSayt7,oSayt8,oSayt9,oSayt10,oSayt11,oSayt12,oSayt13
+    Private oGroup1,oGroup2,oGroup3,oGroup4,oGroup5,oGroup6
+
+    oDlg    := TDialog():New(0,0,700,900,cTituloJanela,,,,,CLR_BLACK,CLR_WHITE,,,.T.)
+    oFolder := TFolder():New(0,0,aFolder,aFolder,oDlg,,,,.T.,,455,350)
+
+    oGroup1 := TGroup():New(010,010,325,220,"Testes",oFolder:aDialogs[1],,,.T.)
+    oGroup2 := TGroup():New(010,225,325,445,"Sistema",oFolder:aDialogs[1],,,.T.)
+    
+    oButton1    := TButton():New(30, 20, "TST00002",     oGroup1,{|| U_TST00002()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay1       := TSay():New(35,70,{||'Fonte: TST00002.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton2    := TButton():New(50, 20, "TST00003",     oGroup1,{|| U_TST00003()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay2       := TSay():New(55,70,{||'Fonte: TST00003.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton3    := TButton():New(70, 20, "TST00004",     oGroup1,{|| U_TST00004()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay3       := TSay():New(75,70,{||'Fonte: TST00004.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton4    := TButton():New(90, 20, "TST00005",     oGroup1,{|| U_TST00005()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay4       := TSay():New(95,70,{||'Fonte: TST00005.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton5    := TButton():New(110, 20, "TST00006",    oGroup1,{|| U_TST00006()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay5       := TSay():New(115,70,{||'Fonte: TST00006.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton6    := TButton():New(130, 20, "TST00007",    oGroup1,{|| U_TST00007()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay6       := TSay():New(135,70,{||'Fonte: TST00007.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton7    := TButton():New(150, 20, "TST00008",    oGroup1,{|| U_TST00008()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay7       := TSay():New(155,70,{||'Fonte: TST00008.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton8    := TButton():New(170, 20, "TST00009",    oGroup1,{|| U_TST00009()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay8       := TSay():New(175,70,{||'Fonte: TST00009.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton9    := TButton():New(190, 20, "TST00010",    oGroup1,{|| U_TST00010()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay9       := TSay():New(195,70,{||'Fonte: TST00010.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton10   := TButton():New(210, 20, "TST00011",    oGroup1,{|| U_TST00011()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay10      := TSay():New(215,70,{||'Fonte: TST00011.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton11   := TButton():New(230, 20, "TST00012",    oGroup1,{|| U_TST00012()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay11      := TSay():New(235,70,{||'Fonte: TST00012.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton12   := TButton():New(250, 20, "TST00013",    oGroup1,{|| U_TST00013()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay12      := TSay():New(255,70,{||'Fonte: TST00013.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+    
+    oButton13   := TButton():New(270, 20, "TST00014",    oGroup1,{|| U_TST00014()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+    oSay13      := TSay():New(275,70,{||'Fonte: TST00014.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+
+
+    oGroup3 := TGroup():New(010,010,325,220,"",oFolder:aDialogs[2],,,.T.)
+    oGroup4 := TGroup():New(010,225,325,445,"",oFolder:aDialogs[2],,,.T.)
+
+    oGroup5 := TGroup():New(010,010,325,220,"",oFolder:aDialogs[3],,,.T.)
+    oGroup6 := TGroup():New(010,225,325,445,"",oFolder:aDialogs[3],,,.T.)
+
+    oDlg:Activate(,,,.T.)
 return 
+ 

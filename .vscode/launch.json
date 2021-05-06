@@ -27,6 +27,16 @@
 			"args": [],
 			"label": "SIGAESP1",
 			"description": ""
+		},
+		{
+			"args": [],
+			"label": "mpsdu",
+			"description": ""
+		},
+		{
+			"args": [],
+			"label": "SIGAACFG",
+			"description": ""
 		}
 	],
 	"lastProgramExecuted": "SIGAESP"
