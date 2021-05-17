@@ -55,8 +55,8 @@ User Function TST00003()
 
 
 	Private aDados := {Space(30),Space(30),Space(30),Space(30),Space(30),Space(30)}
-	Private oSay1,oSay2,oSay3,oSay4,oSay5,oSay6,oSay7,oSay8,oSay9,oSay10,oSay11,oSay12
-	Private oGet1,oGet2,oGet3,oGet4,oGet5,oGet6,oGet7,oGet8,oGet9,oGet10
+	Private oSay1,oSay2,oSay3,oSay4,oSay5,oSay6,oSay7,oSay8,oSay9,oSay10,oSay11,oSay12,oSayCod
+	Private oGet1,oGet2,oGet3,oGet4,oGet5,oGet6,oGet7,oGet8,oGet9,oGet10,oGetCod
 
 	cGet1   := Space(30)
 	cGet2   := Space(30)
@@ -68,6 +68,7 @@ User Function TST00003()
 	cGet8   := Space(30)
 	cGet9   := Space(9)
 	cGet10  := Space(30)
+	cGetCod := Space(6)
 
 
 	oDlg := TDialog():New(0,0,500,1280,cTituloJanela,,,,,CLR_BLACK,CLR_WHITE,,,.T.)
@@ -91,6 +92,10 @@ User Function TST00003()
 	oSay6 := TSay():New(025,005,{||'CPF'},oFolder:aDialogs[1],,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
 	oGet6 := TGet():New(035,005,{|u| IIF(Pcount()>0,cGet6 :=  u,cGet6)},oFolder:aDialogs[1],096,009,"@E 999.999.999-99",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet6,,,, )
 
+	oSayCod := TSay():New(025,110,{||'Código'},oFolder:aDialogs[1],,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+	oGetCod := TGet():New(035,110,{|u| IIF(Pcount()>0,cGetCod :=  u,cGetCod)},oFolder:aDialogs[1],040,009,"",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGetCod,,,, )
+	oGetCod:cF3 := "ZZA"
+	
 	oGroupSexo      := tGroup():New(01,330,50,430,"Sexo",oFolder:aDialogs[1],,,.T.) //Preste atenção no dimensionamento/tamanho do elemento, este é diferente dos outros
 	oRadioSexo  := tRadMenu():New(10,340,aSexo,{|u| iif(PCount()>0,nSexo :=u,nSexo )},oFolder:aDialogs[1],,,,,,,,60,20,,,,.T.)
 
@@ -157,9 +162,9 @@ User Function TST00003()
 //=============================================================================================================================================================================================================================
 
 	oButtonIncluir      := TButton():New(220, 10, "Incluir",    oDlg, {|| xIncluir() }, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. )
-	oButtonAlterar      := TButton():New(220, 70, "Alterar",    oDlg,{|| U_xAlterar()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. )
-	oButtonConsultar    := TButton():New(220, 130, "Consultar", oDlg,{|| U_xConsultar()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. )
-	oButtonExcluir      := TButton():New(220, 190, "Excluir",   oDlg,{|| U_xIExcluir()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. )
+	oButtonAlterar      := TButton():New(220, 70, "Alterar",    oDlg,{|| xAlterar()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. )
+	oButtonConsultar    := TButton():New(220, 130, "Consultar", oDlg,{|| xConsultar()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. )
+	oButtonExcluir      := TButton():New(220, 190, "Excluir",   oDlg,{|| xIExcluir()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. )
 
 	oDlg:Activate(,,,.T.)
 Return
@@ -232,4 +237,43 @@ Static Function xIncluir()
 		MsgAlert("Não foi possível incluir o registro na tabela")
 	EndIf
     DBCloseArea()
+return
+
+Static Function xConsultar()
+    Local lOk := .T.
+
+	If Empty(cGetCod)
+		lOk := .F.
+	EndIf
+
+	DBSelectArea("ZZA")
+	If lOk .AND. dbSeek(FWXfilial("ZZA") + cGetCod)     // Filial: 01 / Código: 000001 / Loja: 02
+    	cGetCod 	 := ZZA-> ZZA_COD
+    	cGet1 		 := ZZA-> ZZA_NOME
+        cGet2 		 := ZZA-> ZZA_NREDUZ
+    	dGet3 		 := ZZA-> ZZA_DATNAS
+		cGet4 		 := ZZA-> ZZA_DDD
+		cGet5 		 := ZZA-> ZZA_CEL
+		nSexo 		 := Val(ZZA->ZZA_SEXO)
+		cGet6 		 := ZZA-> ZZA_CPF
+		cGet9 		 := ZZA-> ZZA_END
+		cGet10 		 := ZZA-> ZZA_BAIRRO
+		cImovel 	 := ZZA-> ZZA_TIPIMO
+		cGet9 		 := ZZA-> ZZA_CEP
+		cEstados 	 := ZZA-> ZZA_ESTADO
+		cGet10 		 := ZZA-> ZZA_CIDADE
+		cEstCivil 	 := ZZA-> ZZA_ESTCIV
+		nPet 		 := Val(ZZA-> ZZA_TEMPET)
+		lCheckADVPL  := IIF(ZZA-> ZZA_LADVPL == "S",.T.,.F.)
+		lCheckSQL	 := IIF(ZZA-> ZZA_LSQL 	 == "S",.T.,.F.)
+		lCheckCSHARP := IIF(ZZA-> ZZA_LC 	 == "S",.T.,.F.)
+		lCheckPython := IIF(ZZA-> ZZA_PYTHON == "S",.T.,.F.)
+		cObservacao  := ZZA-> ZZA_OBS
+
+        MsgInfo("Cliente localizado", "Consulta por cliente")
+	Else
+  	    MsgInfo("Cliente não encontrado", "Consulta por cliente")
+	EndIf
+    DBCloseArea()
+	oDlg:Refresh()
 return

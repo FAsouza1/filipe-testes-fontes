@@ -1,0 +1,11 @@
+#include 'Protheus.ch'
+
+User Function A010TOKVALID(cGrupo)
+	Local lRet := .T.
+
+    IF cGrupo $ "0010/0011/0012"
+        lRet := .F.
+        Alert("Inclusão nao permitida, devido ao codigo do grupo. O código deve ser diferente de '0010/0011/0012'","Atenção")
+    EndIf
+
+Return lRet

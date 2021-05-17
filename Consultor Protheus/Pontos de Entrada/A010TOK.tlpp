@@ -1,0 +1,11 @@
+#include 'Protheus.ch'
+
+User Function A010TOK()
+	Local lRet := .T.
+
+    IF Inclui 
+        lRet := U_A010TOKVALID(M->B1_GRUPO)
+    EndIf
+
+Return lRet
+

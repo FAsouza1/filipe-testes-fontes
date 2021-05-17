@@ -1,0 +1,14 @@
+
+User Function MT100LOK()
+Local lRet := .T.
+Local nAcolsTES := aScan(aHeader,{|x| Alltrim(x[2]) == "D1_TES"})
+Local nAcolsQTD := aScan(aHeader,{|x| Alltrim(x[2]) == "D1_QUANT"})
+
+Local cTes   := aCols[n,nAcolsTES]
+Local nQuant := aCols[n,nAcolsQTD]
+
+If nQuant >= 5 .AND. !(cTes$SUPERGETMV("MV_YTESQTD"))
+    ALERT("Para quantidadws iguais ou superiores a 5, deve-se usar as TES  específicas"+Chr(10)+Chr(13)+"Consulte seu setor Financeiro","Alerta")
+ENDIF
+
+Return lRet

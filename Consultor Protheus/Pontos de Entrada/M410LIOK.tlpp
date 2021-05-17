@@ -1,0 +1,28 @@
+User Function M410LIOK()
+Local lRet          := .T.
+Local nAcolsQTDVen  := aScan(aHeader,{|x| Alltrim(x[2]) == "C6_QTDVEN"})
+Local nQuant        := aCols[n,nAcolsQTDVen]
+Local nI            := 0
+Local nIguais       := 0
+
+Local nAcolsCODPROD := aScan(aHeader,{|x| Alltrim(x[2]) == "C6_PRODUTO"})
+Local cCodProduto   := aCols[n,nAcolsCODPROD]
+
+For nI := 1 to Len(aCols)
+    If aCols[nCount, nAcolsCODPROD] == cCodProduto
+        nIguais += 1
+    EndIf
+Next nI
+
+If nIguais > 1
+    If nQuant > 10
+        ALERT("Não é permitido a inclusão de produtos iguais no mesmo pedido","Operação Não Permitida")
+    ENDIF
+else
+    If nQTDVEN > 10
+        lRet := .F.
+        Alert("Neste periodo nao estamos permitindo a compra de mais de 10 unidades do mesmo item")
+    EndIf
+EndIf
+
+Return lRet

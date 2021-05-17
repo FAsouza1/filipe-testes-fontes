@@ -7,59 +7,151 @@ User Function TST00001()
     Private oFolder
     Private aFolder         := {"Funções","Executar","Outros"}
     Private cTituloJanela   := "Ultilitarios - Protheus Teste"
+    Private oGroup1,oGroup2,oGroup3,oGroup4,oGroup5,oGroup6
 
     Private oButton1,oButton2,oButton3,oButton4,oButton5,oButton6,oButton7,oButton8,oButton9,oButton10,oButton11,oButton12,oButton13
     Private oSay1,oSay2,oSay3,oSay4,oSay5,oSay6,oSay7,oSay8,oSay9,oSay10,oSay11,oSay12,oSay13
+    
+    Private oButton14,oButton15,oButton16,oButton17,oButton18,oButton19,oButton20,oButton21,oButton22,oButton23,oButton24,oButton25,oButton26
+    Private oSay14,oSay15,oSay16,oSay17,oSay18,oSay19,oSay20,oSay21,oSay22,oSay23,oSay24,oSay25,oSay26
+    
+    Private oButton27,oButton28,oButton29,oButton30,oButton31,oButton32,oButton33,oButton34,oButton35,oButton36,oButton37,oButton38,oButton39
+    Private oSay27,oSay28,oSay29,oSay30,oSay31,oSay32,oSay33,oSay34,oSay35,oSay36,oSay37,oSay38,oSay39
+    
     Private oSayT1,oSayt2,oSayt3,oSayt4,oSayt5,oSayt6,oSayt7,oSayt8,oSayt9,oSayt10,oSayt11,oSayt12,oSayt13
-    Private oGroup1,oGroup2,oGroup3,oGroup4,oGroup5,oGroup6
 
     oDlg    := TDialog():New(0,0,700,900,cTituloJanela,,,,,CLR_BLACK,CLR_WHITE,,,.T.)
     oFolder := TFolder():New(0,0,aFolder,aFolder,oDlg,,,,.T.,,455,350)
 
     oGroup1 := TGroup():New(010,010,325,220,"Testes",oFolder:aDialogs[1],,,.T.)
+    
+        oButton1    := TButton():New(30, 20, "TST00002",     oGroup1,{|| U_TST00002()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay1       := TSay():New(35,70,{||'Fonte: TST00002.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton2    := TButton():New(50, 20, "TST00003",     oGroup1,{|| U_TST00003()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay2       := TSay():New(55,70,{||'Fonte: TST00003.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton3    := TButton():New(70, 20, "TST00004",     oGroup1,{|| U_TST00004()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay3       := TSay():New(75,70,{||'Fonte: TST00004.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton4    := TButton():New(90, 20, "TST00005",     oGroup1,{|| U_TST00005()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay4       := TSay():New(95,70,{||'Fonte: TST00005.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton5    := TButton():New(110, 20, "TST00006",    oGroup1,{|| U_TST00006()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay5       := TSay():New(115,70,{||'Fonte: TST00006.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton6    := TButton():New(130, 20, "TST00007",    oGroup1,{|| U_TST00007()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay6       := TSay():New(135,70,{||'Fonte: TST00007.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton7    := TButton():New(150, 20, "TST00008",    oGroup1,{|| U_TST00008()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay7       := TSay():New(155,70,{||'Fonte: TST00008.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton8    := TButton():New(170, 20, "TST00009",    oGroup1,{|| U_TST00009()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay8       := TSay():New(175,70,{||'Fonte: TST00009.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton9    := TButton():New(190, 20, "TST00010",    oGroup1,{|| U_TST00010()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay9       := TSay():New(195,70,{||'Fonte: TST00010.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton10   := TButton():New(210, 20, "TST00011",    oGroup1,{|| U_TST00011()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay10      := TSay():New(215,70,{||'Fonte: TST00011.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton11   := TButton():New(230, 20, "TST00012",    oGroup1,{|| U_TST00012()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay11      := TSay():New(235,70,{||'Fonte: TST00012.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton12   := TButton():New(250, 20, "TST00013",    oGroup1,{|| U_TST00013()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay12      := TSay():New(255,70,{||'Fonte: TST00013.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton13   := TButton():New(270, 20, "TST00014",    oGroup1,{|| U_TST00014()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay13      := TSay():New(275,70,{||'Fonte: TST00014.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+
     oGroup2 := TGroup():New(010,225,325,445,"Sistema",oFolder:aDialogs[1],,,.T.)
-    
-    oButton1    := TButton():New(30, 20, "TST00002",     oGroup1,{|| U_TST00002()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay1       := TSay():New(35,70,{||'Fonte: TST00002.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton2    := TButton():New(50, 20, "TST00003",     oGroup1,{|| U_TST00003()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay2       := TSay():New(55,70,{||'Fonte: TST00003.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton3    := TButton():New(70, 20, "TST00004",     oGroup1,{|| U_TST00004()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay3       := TSay():New(75,70,{||'Fonte: TST00004.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton4    := TButton():New(90, 20, "TST00005",     oGroup1,{|| U_TST00005()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay4       := TSay():New(95,70,{||'Fonte: TST00005.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton5    := TButton():New(110, 20, "TST00006",    oGroup1,{|| U_TST00006()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay5       := TSay():New(115,70,{||'Fonte: TST00006.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton6    := TButton():New(130, 20, "TST00007",    oGroup1,{|| U_TST00007()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay6       := TSay():New(135,70,{||'Fonte: TST00007.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton7    := TButton():New(150, 20, "TST00008",    oGroup1,{|| U_TST00008()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay7       := TSay():New(155,70,{||'Fonte: TST00008.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton8    := TButton():New(170, 20, "TST00009",    oGroup1,{|| U_TST00009()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay8       := TSay():New(175,70,{||'Fonte: TST00009.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton9    := TButton():New(190, 20, "TST00010",    oGroup1,{|| U_TST00010()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay9       := TSay():New(195,70,{||'Fonte: TST00010.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton10   := TButton():New(210, 20, "TST00011",    oGroup1,{|| U_TST00011()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay10      := TSay():New(215,70,{||'Fonte: TST00011.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton11   := TButton():New(230, 20, "TST00012",    oGroup1,{|| U_TST00012()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay11      := TSay():New(235,70,{||'Fonte: TST00012.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton12   := TButton():New(250, 20, "TST00013",    oGroup1,{|| U_TST00013()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay12      := TSay():New(255,70,{||'Fonte: TST00013.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
-    
-    oButton13   := TButton():New(270, 20, "TST00014",    oGroup1,{|| U_TST00014()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
-    oSay13      := TSay():New(275,70,{||'Fonte: TST00014.tlpp'},oGroup1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
 
+        oButton14    := TButton():New(30 , 235, "MVC0001",    oGroup2,{|| U_MVC0001()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay14       := TSay():New(35,285 ,{||'Fonte: MVC0001.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton15    := TButton():New(50 , 235, "MVC0002",    oGroup2,{|| U_MVC0002()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay15       := TSay():New(55,285 ,{||'Fonte: MVC0002.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton16    := TButton():New(70 , 235, "MVC0003",    oGroup2,{|| U_MVC0003()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay16       := TSay():New(75,285 ,{||'Fonte: MVC0003.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton17    := TButton():New(90 , 235, "MVC0004",    oGroup2,{|| U_MVC0004()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay17       := TSay():New(95,285 ,{||'Fonte: MVC0004.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton18    := TButton():New(110, 235, "MVC0005",    oGroup2,{|| U_MVC0005()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay18       := TSay():New(115,285,{||'Fonte: MVC0005.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton19    := TButton():New(130, 235, "MVC0006",    oGroup2,{|| U_MVC0006()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay19       := TSay():New(135,285,{||'Fonte: MVC0006.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton20    := TButton():New(150, 235, "MVC0007",    oGroup2,{|| U_MVC0007()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay20       := TSay():New(155,285,{||'Fonte: MVC0007.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton21    := TButton():New(170, 235, "MVC0008",    oGroup2,{|| U_MVC0008()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay21       := TSay():New(175,285,{||'Fonte: MVC0008.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton22    := TButton():New(190, 235, "MVC - ZZB",    oGroup2,{|| U_MVC0009()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay22       := TSay():New(195,285,{||'Fonte: MVC0009.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton23    := TButton():New(210, 235, "MVC - ZZC",    oGroup2,{|| U_MVC0010()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay23       := TSay():New(215,285,{||'Fonte: MVC0010.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton24    := TButton():New(230, 235, "MVC - ZZD",    oGroup2,{|| U_MVC0011()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay24       := TSay():New(235,285,{||'Fonte: MVC0011.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton25    := TButton():New(250, 235, "MVC - AxA",    oGroup2,{|| U_MVC0012()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay25       := TSay():New(255,285,{||'Fonte: MVC0012.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+        
+        oButton26    := TButton():New(270, 235, "MVC - AxAxM",    oGroup2,{|| U_MVC0013()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay26       := TSay():New(275,285,{||'Fonte: MVC0013.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
 
-    oGroup3 := TGroup():New(010,010,325,220,"",oFolder:aDialogs[2],,,.T.)
+    oGroup3 := TGroup():New(010,010,325,220,"Knowledge Week",oFolder:aDialogs[2],,,.T.)
+        
+        oButton27    := TButton():New(30, 20, "MVC01",      oGroup3,{|| U_MVC01()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay27       := TSay():New(35,70,{||'Fonte: MVC01.prw'},    oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton28    := TButton():New(50, 20, "MVC02",      oGroup3,{|| U_MVC02()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay28       := TSay():New(55,70,{||'Fonte: MVC02.prw'},    oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton29    := TButton():New(70, 20, "MVC03",      oGroup3,{|| U_MVC03()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay29       := TSay():New(75,70,{||'Fonte: MVC03.prw'},    oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton30    := TButton():New(90, 20, "MVC04",      oGroup3,{|| U_MVC04()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay30       := TSay():New(95,70,{||'Fonte: MVC04.prw'},    oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton31    := TButton():New(110, 20, "MVC05",     oGroup3,{|| U_MVC05()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay31       := TSay():New(115,70,{||'Fonte: MVC05.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton32    := TButton():New(130, 20, "MVC06",     oGroup3,{|| U_MVC06()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay32       := TSay():New(135,70,{||'Fonte: MVC06.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton33    := TButton():New(150, 20, "MVC07",     oGroup3,{|| U_MVC07()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay33       := TSay():New(155,70,{||'Fonte: MVC07.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton34    := TButton():New(170, 20, "MVC08",     oGroup3,{|| U_MVC08()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay34       := TSay():New(175,70,{||'Fonte: MVC08.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton35    := TButton():New(190, 20, "MVC09",     oGroup3,{|| U_MVC09()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay35       := TSay():New(195,70,{||'Fonte: MVC09.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton36    := TButton():New(210, 20, "MVC10",     oGroup3,{|| U_MVC10()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay36       := TSay():New(215,70,{||'Fonte: MVC10.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton37    := TButton():New(230, 20, "MVC11",     oGroup3,{|| U_MVC11()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay37       := TSay():New(235,70,{||'Fonte: MVC11.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton38    := TButton():New(250, 20, "MVC12",     oGroup3,{|| U_MVC12()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay38       := TSay():New(255,70,{||'Fonte: MVC12.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
+        oButton39    := TButton():New(270, 20, "MVC13",     oGroup3,{|| U_MVC13()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay39       := TSay():New(275,70,{||'Fonte: MVC13.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+
+        oButton39    := TButton():New(270, 20, "MVC14",     oGroup3,{|| U_MVC14()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay39       := TSay():New(275,70,{||'Fonte: MVC14.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+
+        oButton39    := TButton():New(270, 20, "MVC15",     oGroup3,{|| U_MVC15()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oSay39       := TSay():New(275,70,{||'Fonte: MVC15.prw'},   oGroup3,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+            
     oGroup4 := TGroup():New(010,225,325,445,"",oFolder:aDialogs[2],,,.T.)
 
     oGroup5 := TGroup():New(010,010,325,220,"",oFolder:aDialogs[3],,,.T.)
