@@ -87,19 +87,19 @@ User Function TST00001()
         oButton20    := TButton():New(150, 235, "MVC0007",    oGroup2,{|| U_MVC0007()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
         oSay20       := TSay():New(155,285,{||'Fonte: MVC0007.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
         
-        oButton21    := TButton():New(170, 235, "MVC0008",    oGroup2,{|| U_MVC0008()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oButton21    := TButton():New(170, 235, "MVC - ZZB",    oGroup2,{|| U_MVC0008()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
         oSay21       := TSay():New(175,285,{||'Fonte: MVC0008.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
         
-        oButton22    := TButton():New(190, 235, "MVC - ZZB",    oGroup2,{|| U_MVC0009()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oButton22    := TButton():New(190, 235, "MVC - ZZC",    oGroup2,{|| U_MVC0009()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
         oSay22       := TSay():New(195,285,{||'Fonte: MVC0009.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
         
-        oButton23    := TButton():New(210, 235, "MVC - ZZC",    oGroup2,{|| U_MVC0010()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oButton23    := TButton():New(210, 235, "MVC - ZZD",    oGroup2,{|| U_MVC0010()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
         oSay23       := TSay():New(215,285,{||'Fonte: MVC0010.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
         
-        oButton24    := TButton():New(230, 235, "MVC - ZZD",    oGroup2,{|| U_MVC0011()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oButton24    := TButton():New(230, 235, "MVC - AxA",    oGroup2,{|| U_MVC0011()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
         oSay24       := TSay():New(235,285,{||'Fonte: MVC0011.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
         
-        oButton25    := TButton():New(250, 235, "MVC - AxA",    oGroup2,{|| U_MVC0012()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+        oButton25    := TButton():New(250, 235, "MVC - AxM",    oGroup2,{|| U_MVC0012()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
         oSay25       := TSay():New(255,285,{||'Fonte: MVC0012.prw'},oGroup2,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
         
         oButton26    := TButton():New(270, 235, "MVC - AxAxM",    oGroup2,{|| U_MVC0013()}, 40,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes

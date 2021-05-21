@@ -1,86 +1,78 @@
-
 #Include 'Protheus.ch'
 #Include 'FWMVCDEF.ch'
 
 
 User Function MVC0013()
-Local oBrowse
-	oBrowse := FWMBrowse():New()
+	Local oBrowse := FWMBrowse():New()
+	
 	oBrowse:SetAlias('ZZB')
-	oBrowse:SetDescription('Cadastro de ARTISTA x ÁLBUM x Música')
     oBrowse:SetMenuDef('MVC0013')
+	oBrowse:SetDescription('Cadastro de ARTISTA x ÁLBUM x Música')
 
 	oBrowse:Activate()
 Return
 
 Static Function MenuDef()
-Local aRotina := {}
+	Local aRotina := {}
 
-ADD OPTION aRotina TITLE 'Visualizar' ACTION 'VIEWDEF.MVC0013' OPERATION 2 ACCESS 0
-ADD OPTION aRotina TITLE 'Incluir'    ACTION 'VIEWDEF.MVC0013' OPERATION 3 ACCESS 0
-ADD OPTION aRotina TITLE 'Alterar'    ACTION 'VIEWDEF.MVC0013' OPERATION 4 ACCESS 0
-ADD OPTION aRotina TITLE 'Excluir'    ACTION 'VIEWDEF.MVC0013' OPERATION 5 ACCESS 0
-ADD OPTION aRotina TITLE 'Imprimir'   ACTION 'VIEWDEF.MVC0013' OPERATION 8 ACCESS 0
-ADD OPTION aRotina TITLE 'Copiar'     ACTION 'VIEWDEF.MVC0013' OPERATION 9 ACCESS 0
+	ADD OPTION aRotina TITLE 'Visualizar' ACTION 'VIEWDEF.MVC0013' OPERATION 2 ACCESS 0
+	ADD OPTION aRotina TITLE 'Incluir'    ACTION 'VIEWDEF.MVC0013' OPERATION 3 ACCESS 0
+	ADD OPTION aRotina TITLE 'Alterar'    ACTION 'VIEWDEF.MVC0013' OPERATION 4 ACCESS 0
+	ADD OPTION aRotina TITLE 'Excluir'    ACTION 'VIEWDEF.MVC0013' OPERATION 5 ACCESS 0
+	ADD OPTION aRotina TITLE 'Imprimir'   ACTION 'VIEWDEF.MVC0013' OPERATION 8 ACCESS 0
+	ADD OPTION aRotina TITLE 'Copiar'     ACTION 'VIEWDEF.MVC0013' OPERATION 9 ACCESS 0
 
 Return aRotina
 
-Static Function ModelDef() 
-Local oModel 
-Local oStruZZB := FWFormStruct(1,"ZZB") 
-Local oStruZZC := FWFormStruct(1,"ZZC") 
-Local oStruZZD := FWFormStruct(1,"ZZD") 
+Static Function ModelDef()
+	Local oModel
 
-    oModel := MPFormModel():New("MD_ARTISTA_ÁLBUM")  
-    oModel:setDescription("Cadastro de ARTISTA x ÁLBUM x Música")    
+	Local oStruZZB 	:= FwFormStruct(1, "ZZB")
+	Local oStruZZC 	:= FwFormStruct(1, "ZZC")
+	Local oStruZZD 	:= FwFormStruct(1, "ZZD")
 
-    oModel:addFields('MASTERZZB',,oStruZZB)
-    oModel:getModel('MASTERZZB'):SetDescription('Dados da ARTISTA')  
+	oModel:= MPFormModel():New("MDREJECT")
 
-    oModel:addGrid('DETAILZZC','MASTERZZB',oStruZZC)    
-    oModel:getModel('DETAILZZC'):SetDescription('Dados do ÁLBUM') 
-    
-    oModel:setRelation("DETAILZZC", ;       
- 					{{"ZZC_FILIAL",'xFilial("ZZC")'},;        
- 						{"ZZC_ARTS","ZZB_COD"  }}, ;       
- 						ZZC->(IndexKey(1)))         
+	oModel:AddFields( "ZZBMASTER" ,			    , oStruZZB)
+	oModel:AddGrid(	  "ZZCDETAIL" , "ZZBMASTER" , oStruZZC)
+	oModel:AddGrid(	  "ZZDDETAIL" , "ZZCDETAIL" , oStruZZD)
 
-    oModel:addGrid('DETAILZZD','DETAILZZB',oStruZZD)
-    oModel:getModel('DETAILZZD'):SetDescription('Dados das Músicas do ÁLBUM')     						
-    oModel:setRelation("DETAILZZD", ;       
- 					{{"ZZD_FILIAL",'xFilial("ZZD")'},;        
- 					{"ZZD_ARTS","ZZB_COD"  },;        
- 					{"ZZD_ALBM","ZZC_COD"}}, ;       
- 					ZZD->(IndexKey(1))) 	
+	oModel:GetModel( "ZZBMASTER" ):SetOnlyView(.T.)
 
-    oModel:SetPrimaryKey({})			
- 
-Return oModel 
+	oModel:SetRelation( 'ZZCDETAIL',  {{ 'ZZC_FILIAL', 'xFilial( "ZZB" ) ' } , { 'ZZC_ARTS', 'ZZB_COD' } } , ZZC->( IndexKey( 1 ) ) )
+	oModel:SetRelation( 'ZZDDETAIL',  {{ 'ZZD_FILIAL', 'xFilial( "ZZC" ) ' } , { 'ZZD_ALBM', 'ZZC_COD' } } , ZZD->( IndexKey( 1 ) ) )
 
-Static Function ViewDef() 
-Local oModel := ModelDef() 
-Local oView 
-Local oStrZZB:= FWFormStruct(2, 'ZZB')   
-Local oStrZZC:= FWFormStruct(2, 'ZZC')
-Local oStrZZD:= FWFormStruct(2, 'ZZD')
+	oModel:setPrimarykey({ })
 
-    oStrZZC:RemoveField('ZZC_CODTUR')
+Return oModel
 
-	oView := FWFormView():New()  
-	oView:SetModel(oModel)    
-	oView:AddField('FORM_ARTISTA'   , oStrZZB,'MASTERZZB' )  
-	oView:AddGrid('FORM_ALBUMS'     , oStrZZC,'DETAILZZC')  
-	oView:AddGrid('FORM_MUSICAS'    , oStrZZD,'DETAILZZD')  
+Static Function ViewDef()
+	
+	Local oModel    := modeldef()
+	Local oView 	:= FwFormView():New()
+	
+	Local oStruZZB  := FwFormStruct(2, "ZZB")
+	Local oStruZZC  := FWFormStruct(2, "ZZC")
+	Local oStruZZD  := FWFormStruct(2, "ZZD")
 
-	oView:CreateHorizontalBox(  'BOX_CABEC'         ,20)  
-	oView:CreateVerticalBox(    'BOX_FORM_ARTISTA'  ,10,'BOX_CABEC')  
+	oView:SetModel(oModel)
 
-	oView:CreateHorizontalBox(  'BOX_RODAP'         ,80)  
-	oView:CreateVerticalBox(    'BOX_FORM_ALBUM'    ,50,'BOX_RODAP')  
-    oView:CreateVerticalBox(    'BOX_FORM_MUSICAS'  ,50,'BOX_RODAP')  
-	 			
- 	oView:SetOwnerView('FORM_ARTISTA'   ,'BOX_FORM_ARTISTA')  
- 	oView:SetOwnerView('FORM_ALBUMS'    ,'BOX_FORM_ALBUM')  	
- 	oView:SetOwnerView('FORM_MUSICAS'   ,'BOX_FORM_MUSICAS')  	
-		
-Return oView 
+	oView:AddField(	"VIEW_ZZB"	, oStruZZB, "ZZBMASTER")
+	oView:AddGrid(	"VIEW_ZZC"	, oStruZZC, "ZZCDETAIL")
+	oView:AddGrid(	"VIEW_ZZD"	, oStruZZD, "ZZDDETAIL")
+
+	oView:CreateHorizontalBox("EMCIMA"	, 20)
+	oView:CreateHorizontalBox("EMBAIXO"	, 80)
+
+	oView:CreateVerticalBox("Esquerda"	,50, "EMBAIXO")
+	oView:CreateVerticalBox("Direita"	,50, "EMBAIXO")
+
+	oView:SetOwnerView("VIEW_ZZB", "EMCIMA")
+	oView:SetOwnerView("VIEW_ZZC", "Esquerda")
+	oView:SetOwnerView("VIEW_ZZD", "Direita")
+
+	oView:EnableTitleView("VIEW_ZZB")
+	oView:EnableTitleView("VIEW_ZZC", "Cadastro de Álbuns")
+	oView:EnableTitleView("VIEW_ZZD", "Cadastro de Músicas")
+
+Return oView
